@@ -9,7 +9,11 @@ from product import Product
 
 
 def getHTML(url):
-    page = requests.get(url)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:69.0) Gecko/20100101 Firefox/69.0"
+    }
+
+    page = requests.get(url, headers=headers)
     return BeautifulSoup(page.text, "html.parser")
 
 
