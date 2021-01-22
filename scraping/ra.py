@@ -7,7 +7,18 @@ from utils import getHTML, createID, toJSON, fromJSON
 
 def getAll(logfn):
     allProducts = []
-    productTypes = ["prints", "books", "fashion", "home"]
+    productTypes = [
+        "art-artists/all-artworks",
+        "reproductions/posters-prints",
+        "art-material/all-art-materials",
+        "books/bookshop",
+        "fashion/jewellery",
+        "bags",
+        "scarves",
+        "kids",
+        "lifestyle/life/homeware",
+        "lifestyle/life/entertaining"
+    ]
 
     for pt in productTypes:
         products = getAllProductsOfType(pt, logfn)
@@ -22,7 +33,7 @@ def getAllProductsOfType(productType, logfn):
     while True:
         pageOfProducts = getPageOfProducts(productType, page, logfn)
 
-        if len(pageOfProducts) == 0:
+        if pageOfProducts[0].isIn(products):
             break
 
         products += pageOfProducts
@@ -34,15 +45,16 @@ def getAllProductsOfType(productType, logfn):
 def getPageOfProducts(productType, pageNum, logfn):
     time.sleep(0.5)
     products = []
-    base = "https://shop.tate.org.uk"
 
-    url = f"{base}/{productType}/view-all-{productType}?start={(pageNum - 1) * 100}&sz=100"
+    base = "https://shop.royalacademy.org.uk"
+    url = f"{base}/{productType}?p={pageNum}"
+
     logfn(url)
     soup = getHTML(url)
 
-    tiles = soup.find_all(class_="product-tile")
-    for tile in tiles:
+    items = soup.find_all(class_="product-item-photo")
+    for item in items:
         products.append(
-            Product(createID(), f"{base}{tile.div.a['href']}", tile.div.img["src"]))
+            Product(createID(), item['href'], item.span.span.img['src']))
 
     return products
