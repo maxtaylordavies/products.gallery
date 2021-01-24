@@ -1,1 +1,5 @@
 __pycache__/
+ui/node_modules/
+ui/build/
+ui/dist/
+ui/.eslintcache

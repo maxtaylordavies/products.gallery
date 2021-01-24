@@ -1,0 +1,69 @@
+.App {
+  font-family: "Helvetica Neue";
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.home-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: #001aff;
+  padding: 10px;
+  text-decoration: none;
+  margin-left: 40px;
+}
+
+.about-link {
+  font-size: 24px;
+  font-weight: bold;
+  color: #bdbdbd;
+  text-decoration: none;
+  transition: all 500ms;
+  margin-right: 40px;
+}
+
+.about-link:hover {
+  color: #6fcf97;
+  font-style: italic;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  margin-top: 40px;
+  height: 100%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.product-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.product-card {
+  height: 200px;
+  width: 200px;
+}

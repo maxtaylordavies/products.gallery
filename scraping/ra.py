@@ -55,6 +55,6 @@ def getPageOfProducts(productType, pageNum, logfn):
     items = soup.find_all(class_="product-item-photo")
     for item in items:
         products.append(
-            Product(createID(), item['href'], item.span.span.img['src']))
+            Product(createID(), item['href'], item.span.span.img['data-src']))
 
     return products
