@@ -1,0 +1,12 @@
+[Unit]
+Description=products.gallery
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+ExecStart=/home/pi/go/src/github.com/maxtaylordavies/products.gallery/server/server
+WorkingDirectory=/home/pi/go/src/github.com/maxtaylordavies/products.gallery/
+
+[Install]
+WantedBy=multi-user.target
