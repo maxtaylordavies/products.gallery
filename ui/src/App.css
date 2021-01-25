@@ -67,3 +67,23 @@ header {
   height: 200px;
   width: 200px;
 }
+
+.about-page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.about-text {
+  width: 60vw;
+  margin-left: 15vw;
+  margin-top: 15vh;
+  font-size: 24px;
+  font-weight: 500;
+  color: #828282;
+  z-index: 10;
+}
+
+.about-page-link {
+  color: #001aff;
+}

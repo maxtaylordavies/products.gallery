@@ -86,6 +86,7 @@ func main() {
 		w.Write(b)
 	})
 
+	r.PathPrefix("/logos").Handler(http.FileServer(http.Dir(distPath)))
 	r.PathPrefix("/static").Handler(http.FileServer(http.Dir(distPath)))
 	r.HandleFunc("/favicon.ico", fileHandler(faviconPath))
 	r.PathPrefix("/").HandlerFunc(fileHandler(indexPath))

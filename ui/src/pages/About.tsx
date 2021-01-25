@@ -20,23 +20,40 @@ const About = () => {
     <>
       <Header />
       <div className="about-page">
-        <span className="about-text">
+        <div className="about-text">
           products.gallery is a storefront for showcasing products sold by many
           different UK art galleries. <a href="https://maxtaylordavi.es">i</a>{" "}
           built it because i like browsing these stores as a form of
           procrastination, and i thought it would be cool to have a single space
           collecting all of their interesting wares. you can view the code{" "}
-          <a href="https://www.github.com/maxtaylordavies/products.gallery">
+          <a
+            href="https://www.github.com/maxtaylordavies/products.gallery"
+            className="about-page-link"
+          >
             here
           </a>
-        </span>
-        <div className="logos">
-          {Object.keys(galleries).map((k: string) => {
-            <a href={galleries[k]} target="_blank">
-              <img src={`../logos/${k}.png`} />
-            </a>;
-          })}
         </div>
+        {Object.keys(galleries).map((k: string) => {
+          let top = 90 * Math.random();
+          let left = 90 * Math.random();
+          return (
+            <a
+              href={galleries[k]}
+              target="_blank"
+              className="about-page-link"
+              style={{
+                position: "absolute",
+                top: `${top}vh`,
+                left: `${left}vw`,
+              }}
+            >
+              <img
+                src={`${process.env.PUBLIC_URL}/logos/${k}.png`}
+                height={50}
+              />
+            </a>
+          );
+        })}
       </div>
     </>
   );
