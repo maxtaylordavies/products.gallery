@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 
-header {
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -81,7 +81,9 @@ header {
   font-size: 24px;
   font-weight: 500;
   color: #828282;
+  position: relative;
   z-index: 10;
+  background-color: white;
 }
 
 .about-page-link {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import axios from "axios";
 
 import Header from "../components/Header";
@@ -33,15 +34,17 @@ const Home = () => {
   return (
     <>
       <Header />
-      <div
+      <motion.div
         className="product-grid"
         onScroll={() => {
           onScroll();
         }}
         ref={gridRef}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
       >
         {products.map(ProductCard)}
-      </div>
+      </motion.div>
     </>
   );
 };
