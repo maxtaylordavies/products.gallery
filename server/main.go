@@ -92,11 +92,7 @@ func main() {
 	r.PathPrefix("/").HandlerFunc(fileHandler(indexPath))
 
 	server := http.Server{
-		// Addr: ":https",
-		Addr: ":8000",
-		// TLSConfig: &tls.Config{
-		// 	GetCertificate: certManager.GetCertificate,
-		// },
+		Addr:         ":8001",
 		Handler:      r,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 5 * time.Second,
