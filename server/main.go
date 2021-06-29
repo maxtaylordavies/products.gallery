@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	distPath    = "../ui/dist"
+	distPath    = "ui/dist"
 	indexPath   = distPath + "/index.html"
 	faviconPath = distPath + "/favicon.ico"
 )
@@ -27,7 +27,7 @@ type Product = struct {
 func allProducts() ([]Product, error) {
 	var products []Product
 
-	b, err := ioutil.ReadFile("../scraping/products.json")
+	b, err := ioutil.ReadFile("scraping/products.json")
 	if err != nil {
 		return products, err
 	}
