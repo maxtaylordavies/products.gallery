@@ -5,6 +5,7 @@ Description=products.gallery
 Type=simple
 TimeoutSec=900
 ExecStartPre=/bin/sh -c 'cd ui rm -rf dist && rm -rf build && yarn build && mv build dist'
+ExecStartPre=/bin/sh -c 'cd server && go build'
 ExecStart=/home/pi/code/products.gallery/server/server
 WorkingDirectory=/home/pi/code/products.gallery/
 
