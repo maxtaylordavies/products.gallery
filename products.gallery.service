@@ -2,6 +2,7 @@
 Description=products.gallery
 
 [Service]
+User=pi
 Type=simple
 TimeoutSec=900
 ExecStartPre=/bin/sh -c 'cd ui rm -rf dist && rm -rf build && yarn build && mv build dist'
