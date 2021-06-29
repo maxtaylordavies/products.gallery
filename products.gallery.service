@@ -6,7 +6,6 @@ Type=simple
 Restart=always
 RestartSec=5s
 ExecStartPre=/bin/sh -c 'cd ui && yarn build && mv build dist'
-ExecStartPre=/bin/sh -c 'cd server && go build'
 ExecStart=/home/pi/code/products.gallery/server/server
 WorkingDirectory=/home/pi/code/products.gallery/
 
