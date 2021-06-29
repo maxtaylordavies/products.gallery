@@ -5,8 +5,8 @@ Description=products.gallery
 Type=simple
 Restart=always
 RestartSec=5s
-ExecStart=cd ui; yarn build; mv build dist; cd ../server; /home/pi/code/products.gallery/server/server
-WorkingDirectory=/home/pi/code/products.gallery/
+ExecStart=/home/pi/code/products.gallery/server/server
+WorkingDirectory=/home/pi/code/products.gallery/server
 
 [Install]
 WantedBy=multi-user.target
