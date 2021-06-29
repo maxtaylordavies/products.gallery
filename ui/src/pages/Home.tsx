@@ -8,7 +8,6 @@ import Product from "../types/Product";
 import "../App.css";
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
   const gridRef = useRef<HTMLDivElement>(null);
 
