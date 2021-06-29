@@ -5,6 +5,7 @@ Description=products.gallery
 Type=simple
 Restart=always
 RestartSec=5s
+TimeoutSec=900
 ExecStartPre=/bin/sh -c 'cd ui && yarn build && mv build dist'
 ExecStart=/home/pi/code/products.gallery/server/server
 WorkingDirectory=/home/pi/code/products.gallery/
