@@ -5,11 +5,8 @@ Description=products.gallery
 Type=simple
 Restart=always
 RestartSec=5s
-ExecStartPre=cd ui
-ExecStartPre=yarn build
-ExecStartPre=mv build dist
-ExecStartPre=cd ../server
-ExecStartPre=go build
+ExecStartPre=/bin/sh -c 'cd ui && yarn build && mv build dist'
+ExecStartPre=/bin/sh -c 'cd server && go build'
 ExecStart=/home/pi/code/products.gallery/server/server
 WorkingDirectory=/home/pi/code/products.gallery/
 
