@@ -11,7 +11,7 @@ const Header = () => {
     >
       <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.95 }}>
         <a href="/" className="home-link">
-          products.galleryyyyyy
+          products.gallery
         </a>
       </motion.div>
       <a href="/about" className="about-link">
