@@ -14,8 +14,7 @@ from camden_arts import getAll as getAllCamdenArts
 
 
 def main():
-    allProducts = fromJSON("./products.json")
-    lengthThen = len(allProducts)
+    allProducts = []
 
     fns = [
         getAllTate,
@@ -37,8 +36,7 @@ def main():
             if not p.isIn(allProducts):
                 allProducts.append(p)
 
-    lengthNow = len(allProducts)
-    print(f"Done! Scraped {lengthNow - lengthThen} new products!")
+    print(f"Done! Scraped {len(allProducts)} products!")
     toJSON(allProducts, "products.json")
 
 
