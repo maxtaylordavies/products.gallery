@@ -13,6 +13,8 @@ const galleries: { [key: string]: string } = {
   ra: "https://www.royalacademy.org.uk/",
   southbank: "https://www.southbankcentre.co.uk/",
   tate: "https://www.tate.org.uk/",
+  slg: "https://www.southlondongallery.org/",
+  camden: "https://camdenartcentre.org/",
 };
 
 const About = () => {
