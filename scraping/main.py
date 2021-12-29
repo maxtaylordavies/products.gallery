@@ -27,7 +27,7 @@ def main():
         getAllNottingham,
         getAllSouthbank,
         getAllSLG,
-        # getAllCamdenArts,
+        getAllCamdenArts,
     ]
 
     for fn in fns:
