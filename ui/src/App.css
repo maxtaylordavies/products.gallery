@@ -77,7 +77,8 @@
 .about-text {
   width: 60vw;
   margin-left: 15vw;
-  margin-top: 15vh;
+  margin-top: 25vh;
+  margin-bottom: 20px;
   font-size: 24px;
   font-weight: 500;
   color: #828282;

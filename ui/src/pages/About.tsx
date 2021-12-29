@@ -34,19 +34,8 @@ const About = () => {
           </a>
         </div>
         {Object.keys(galleries).map((k: string) => {
-          let top = 90 * Math.random();
-          let left = 90 * Math.random();
           return (
-            <a
-              href={galleries[k]}
-              target="_blank"
-              className="about-page-link"
-              style={{
-                position: "absolute",
-                top: `${top}vh`,
-                left: `${left}vw`,
-              }}
-            >
+            <a href={galleries[k]} target="_blank" className="about-page-link">
               <img
                 src={`${process.env.PUBLIC_URL}/logos/${k}.png`}
                 height={50}
