@@ -12,11 +12,6 @@ on:
 
 jobs:
   deployment:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy Stage
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "https://deploy.fun/deploy"
-          method: "POST"
-          data: '{"repo": "products.gallery"}'
+    uses: maxtaylordavies/deployer/.github/workflows/main.yml@master
+    with:
+      repo: products.gallery
