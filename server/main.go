@@ -59,6 +59,11 @@ func fileHandler(filePath string) http.HandlerFunc {
 	}
 }
 
+func respond(w http.ResponseWriter, payload interface{}) {
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(payload)
+}
+
 func main() {
 	products, err := allProducts()
 	if err != nil {
@@ -67,23 +72,24 @@ func main() {
 
 	r := mux.NewRouter()
 
+	r.HandleFunc("/status", func(w http.ResponseWriter, r *http.Request) {
+		payload := struct {
+			Status string `json:"status"`
+		}{
+			Status: "ok",
+		}
+		respond(w, payload)
+	})
+
 	r.HandleFunc("/products", func(w http.ResponseWriter, r *http.Request) {
 		n, err := strconv.Atoi(r.URL.Query().Get("n"))
 		if err != nil {
-			w.WriteHeader(400)
+			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
 
-		ps := randomSample(products, n)
-
-		b, err := json.Marshal(ps)
-		if err != nil {
-			w.WriteHeader(500)
-			return
-		}
-
-		w.WriteHeader(200)
-		w.Write(b)
+		payload := randomSample(products, n)
+		respond(w, payload)
 	})
 
 	r.PathPrefix("/logos").Handler(http.FileServer(http.Dir(distPath)))
