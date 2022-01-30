@@ -17,7 +17,7 @@ def getAll(logfn):
         "scarves",
         "kids",
         "lifestyle/life/homeware",
-        "lifestyle/life/entertaining"
+        "lifestyle/life/entertaining",
     ]
 
     for pt in productTypes:
@@ -32,6 +32,9 @@ def getAllProductsOfType(productType, logfn):
     page = 1
     while True:
         pageOfProducts = getPageOfProducts(productType, page, logfn)
+
+        if len(pageOfProducts) == 0:
+            break
 
         if pageOfProducts[0].isIn(products):
             break
@@ -55,6 +58,7 @@ def getPageOfProducts(productType, pageNum, logfn):
     items = soup.find_all(class_="product-item-photo")
     for item in items:
         products.append(
-            Product(createID(), item['href'], item.span.span.img['data-src']))
+            Product(createID(), item["href"], item.span.span.img["data-src"])
+        )
 
     return products
